@@ -1,0 +1,24 @@
+.add-song-layout{
+    display:flex;
+    flex-direction: column;
+    padding:50px;
+    width:500px
+}
+.new-song-label{
+    font-size: large;
+    font-weight: bold;
+}
+button{
+    width: 100px;
+}
+.label-field{
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+.label-padding{
+    padding-right: 15px;
+}
+.input-format{
+    width:200px
+}

@@ -1,21 +1,22 @@
 import React from 'react';
 import Song from '../Song/Song';
+import './MusicTable.css'
 
-let MusicTable = (props) => {
- console.log(props.searchInput)
+let MusicTable = ({searchInput, parentRuntime, parentSongs}) => {
 
- let filteredSongs = props.parentSongs.filter(song => 
-    song.title.toLowerCase().includes(props.searchInput.toLowerCase())|| 
-    song.album.toLowerCase().includes(props.searchInput.toLowerCase())||
-    song.artist.toLowerCase().includes(props.searchInput.toLowerCase())||
-    song.release_date?.includes(props.searchInput)||
-    song.genre?.toLowerCase().includes(props.searchInput.toLowerCase())
+
+ let filteredSongs = parentSongs.filter(song => 
+    song.title.toLowerCase().includes(searchInput.toLowerCase())|| 
+    song.album.toLowerCase().includes(searchInput.toLowerCase())||
+    song.artist.toLowerCase().includes(searchInput.toLowerCase())||
+    song.release_date?.includes(searchInput)||
+    song.genre?.toLowerCase().includes(searchInput.toLowerCase())
     )
 
  
 
     return ( 
-        <div>
+        <div className='table-background'>
             <div>
                 <table>
                     <thead>
@@ -37,13 +38,13 @@ let MusicTable = (props) => {
                         )
                     
                     })}
-                    <tr>
+                    <tr className='run-time'>
                         <td>Total Run Time</td>
                         <td></td>
                         <td></td>
                         <td></td>
                         <td></td>
-                        <td>{props.parentRuntime}</td>
+                        <td>{parentRuntime}</td>
                          
                     </tr>
                     

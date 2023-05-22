@@ -3,6 +3,7 @@ import NavBar from './Components/NavBar/NavBar';
 import axios from 'axios';
 import MusicTable from './Components/MusicTable/MusicTable';
 import AddSong from './Components/AddSong/AddSong';
+import './App.css'
 
 
 
@@ -32,8 +33,6 @@ function App() {
   } catch (error){
     console.log(error.message);
   }
-
-
   }
  
 

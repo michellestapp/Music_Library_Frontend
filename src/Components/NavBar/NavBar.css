@@ -1,0 +1,18 @@
+nav{
+    background-color: mediumpurple;
+    padding: 5px 25px;
+}
+.nav-template{
+    display: flex;
+    justify-content: space-between;
+}
+.logo-box{
+    display: flex;
+    align-items: center;
+}
+.logo{
+    height: 60px;
+}
+.padding{
+    padding: 10px;
+}

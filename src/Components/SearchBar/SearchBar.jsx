@@ -1,22 +1,23 @@
 import React from 'react';
+import './SearchBar.css'
 
-const SearchBar = (props) => {
+const SearchBar = ({searchInput, setSearchInput}) => {
 
     
 
     const handleChange = (e) => {
         e.preventDefault();
-        props.setSearchInput(e.target.value);
+        setSearchInput(e.target.value);
     }
 
 
     return (  
        
         <div>
-            <form>
-            <label>Search</label>
-            <input type='text' onChange = {handleChange} value={props.searchInput}/>
-            <button type='submit'>Clear Filter</button>
+            <form className='search-bar'>
+            <span className='search-template'>Search</span>
+            <input type='text' onChange = {handleChange} value={searchInput}/>
+            <button className='filter'   type='submit'>Clear Filter</button>
             </form>
         </div>
     );

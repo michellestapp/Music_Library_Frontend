@@ -1,17 +1,20 @@
 import React from 'react';
 import SearchBar from '../SearchBar/SearchBar';
+import './NavBar.css'
 
 
-const NavBar = (props) => {
+const NavBar = ({searchInput, setSearchInput}) => {
 
     return (  
         <nav>
-            <div>
-                <div>Music</div>
-                <img src='/Elements/music-icon.jpg' alt="music_logo"/>
-                <div>Library</div>
-                <div>
-                <SearchBar searchInput = {props.searchInput} setSearchInput = {props.setSearchInput} />
+            <div className='nav-template'>
+                <div className='logo-box'>
+                    <h2 className='padding'>Music</h2>
+                    <img className='logo'   src='/Elements/music-icon.jpg' alt="music_logo"/>
+                    <h2 className='padding'>Library</h2>
+                </div>
+                <div className='logo-box'>
+                <SearchBar searchInput = {searchInput} setSearchInput = {setSearchInput} />
                 </div>
             </div>
 

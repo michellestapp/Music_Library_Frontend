@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
+import './AddSong.css'
 
-const AddSong = (props) => {
+const AddSong = ({addSong}) => {
 
     const [title, setTitle] = useState('');
     const [artist, setArtist] = useState('');
@@ -15,29 +16,43 @@ const AddSong = (props) => {
           title: title,
           artist: artist,
           album: album,
-          releaseDate: releaseDate,
+          release_date: releaseDate,
           genre: genre,
-          runtime: runtime
+          run_time: runtime
         };
         console.log(newSong);
-        props.addSong(newSong);
+        addSong(newSong);
       }
     return ( 
         <form onSubmit={handleSubmit}>
-            <div>Add New Song</div>
-            <div>Title</div>
-            <input type="text" value={title} onChange={(event => setTitle(event.target.value))}/>
-            <div>Artist</div>
-            <input type="text" value={artist} onChange={(event => setArtist(event.target.value))}/>
-            <div>Album</div>
-            <input type="text" value={album} onChange={(event => setAlbum(event.target.value))}/>
-            <div>Release Date</div>
-            <input type="date" value={releaseDate} onChange={(event => setReleaseDate(event.target.value))}/>
-            <div>Genre</div>
-            <input type="text" value={genre} onChange={(event => setGenre(event.target.value))}/>
-            <div>Run Time </div>
-            <input type="integer" value={runtime} onChange={(event => setRuntime(event.target.value))}/>
-            <button type="submit">Add Song</button>
+            <div className='add-song-layout'>
+                <span className='new-song-label'>Add New Song</span>
+                <div className='label-field'>
+                    <label className='label-padding'>Title</label>
+                    <input className='input-format' type="text" value={title} onChange={(event => setTitle(event.target.value))}/>
+                </div>
+                <div className='label-field'>
+                    <label className='label-padding'>Artist</label>
+                    <input className='input-format' type="text" value={artist} onChange={(event => setArtist(event.target.value))}/>
+                </div>
+                <div className='label-field'>
+                    <label className='label-padding'>Album</label>
+                    <input className='input-format' type="text" value={album} onChange={(event => setAlbum(event.target.value))}/>
+                </div>
+                <div className='label-field'>
+                    <label className='label-padding'>Release Date</label>
+                    <input className='input-format' type="date" value={releaseDate} onChange={(event => setReleaseDate(event.target.value))}/>
+                </div>
+                <div className='label-field'>
+                    <label className='label-padding'>Genre</label>
+                    <input className='input-format' type="text" value={genre} onChange={(event => setGenre(event.target.value))}/>
+                </div>
+                <div className='label-field'>
+                    <label className='label-padding'>Run Time </label>
+                    <input className='input-format' type="integer" value={runtime} onChange={(event => setRuntime(event.target.value))}/>
+                </div>
+                <button type="submit">Add Song</button>
+            </div>
         </form>
      );
 }
