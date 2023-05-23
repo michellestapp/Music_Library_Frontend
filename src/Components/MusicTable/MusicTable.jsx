@@ -2,7 +2,7 @@ import React from 'react';
 import Song from '../Song/Song';
 import './MusicTable.css'
 
-let MusicTable = ({searchInput, parentRuntime, parentSongs}) => {
+let MusicTable = ({searchInput, parentRuntime, parentSongs, deleteSong}) => {
 
 
  let filteredSongs = parentSongs.filter(song => 
@@ -26,6 +26,7 @@ let MusicTable = ({searchInput, parentRuntime, parentSongs}) => {
                         <th>Release Date</th>
                         <th>Genre</th>
                         <th>Running Time</th>
+                        <th>Delete Song</th>
                     </thead>
                     <tbody>
                     {filteredSongs
@@ -33,8 +34,7 @@ let MusicTable = ({searchInput, parentRuntime, parentSongs}) => {
 
                         return(
                         
-                            <Song song = {song}
-                                />
+                            <Song song = {song} deleteSong={deleteSong}/>
                         )
                     
                     })}

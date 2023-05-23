@@ -34,6 +34,19 @@ function App() {
     console.log(error.message);
   }
   }
+
+  async function deleteSong(songId){
+    try{
+      let response = await axios.delete(`http://127.0.0.1:5000/api/songs/${songId}`)
+      console.log(songId)
+    if(response.status === 204){
+      await getAllSongs();
+    }
+  } catch (error){
+    console.log(error.message);
+  }
+
+  }
  
 
 
@@ -43,7 +56,7 @@ function App() {
         <NavBar searchInput = {searchInput} setSearchInput={setSearchInput}/>
       </nav>
       <div>
-        <MusicTable parentSongs={songs} parentRuntime={runtime} searchInput = {searchInput}></MusicTable>
+        <MusicTable deleteSong = {deleteSong} parentSongs={songs} parentRuntime={runtime} searchInput = {searchInput}></MusicTable>
       </div>
       <div>
         <AddSong addSong = {addSong}/>

@@ -24,6 +24,7 @@ const AddSong = ({addSong}) => {
         addSong(newSong);
       }
     return ( 
+        <div className='table-background'>
         <form onSubmit={handleSubmit}>
             <div className='add-song-layout'>
                 <span className='new-song-label'>Add New Song</span>
@@ -54,6 +55,7 @@ const AddSong = ({addSong}) => {
                 <button type="submit">Add Song</button>
             </div>
         </form>
+        </div>
      );
 }
  
