@@ -30,29 +30,29 @@ const AddSong = ({addSong}) => {
                 <span className='new-song-label'>Add New Song</span>
                 <div className='label-field'>
                     <label className='label-padding'>Title</label>
-                    <input className='input-format' type="text" value={title} onChange={(event => setTitle(event.target.value))}/>
+                    <input data-cy="title-input" className='input-format' type="text" value={title} onChange={(event => setTitle(event.target.value))}/>
                 </div>
                 <div className='label-field'>
                     <label className='label-padding'>Artist</label>
-                    <input className='input-format' type="text" value={artist} onChange={(event => setArtist(event.target.value))}/>
+                    <input data-cy="artist-input" className='input-format' type="text" value={artist} onChange={(event => setArtist(event.target.value))}/>
                 </div>
                 <div className='label-field'>
                     <label className='label-padding'>Album</label>
-                    <input className='input-format' type="text" value={album} onChange={(event => setAlbum(event.target.value))}/>
+                    <input data-cy="album-input" className='input-format' type="text" value={album} onChange={(event => setAlbum(event.target.value))}/>
                 </div>
                 <div className='label-field'>
                     <label className='label-padding'>Release Date</label>
-                    <input className='input-format' type="date" value={releaseDate} onChange={(event => setReleaseDate(event.target.value))}/>
+                    <input data-cy="release_date-input" className='input-format' type="date" value={releaseDate} onChange={(event => setReleaseDate(event.target.value))}/>
                 </div>
                 <div className='label-field'>
                     <label className='label-padding'>Genre</label>
-                    <input className='input-format' type="text" value={genre} onChange={(event => setGenre(event.target.value))}/>
+                    <input data-cy="genre-input" className='input-format' type="text" value={genre} onChange={(event => setGenre(event.target.value))}/>
                 </div>
                 <div className='label-field'>
                     <label className='label-padding'>Run Time </label>
-                    <input className='input-format' type="integer" value={runtime} onChange={(event => setRuntime(event.target.value))}/>
+                    <input data-cy="runtime-input" className='input-format' type="integer" value={runtime} onChange={(event => setRuntime(event.target.value))}/>
                 </div>
-                <button type="submit">Add Song</button>
+                <button data-cy = "add-song-button" type="submit">Add Song</button>
             </div>
         </form>
         </div>
