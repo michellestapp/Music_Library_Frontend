@@ -10,7 +10,7 @@ const Song = ({song,deleteSong}) => {
 
     
     return (  
-        <tr>
+        <tr data-cy="song-data">
             <td>{song.title}</td>
             <td>{song.artist}</td>
             <td>{song.album}</td>
