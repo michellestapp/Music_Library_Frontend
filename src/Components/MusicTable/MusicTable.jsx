@@ -2,6 +2,7 @@ import React from 'react';
 import Song from '../Song/Song';
 import './MusicTable.css'
 
+
 let MusicTable = ({searchInput, parentRuntime, parentSongs, deleteSong}) => {
 
 
@@ -18,7 +19,7 @@ let MusicTable = ({searchInput, parentRuntime, parentSongs, deleteSong}) => {
     return ( 
         <div className='table-background'>
             <div>
-                <table>
+                <table className='table'>
                     <thead>
                         <th>Title</th>
                         <th>Artist</th>
@@ -51,6 +52,7 @@ let MusicTable = ({searchInput, parentRuntime, parentSongs, deleteSong}) => {
                     </tbody>
 
                 </table>
+               
             </div>
            
         </div>

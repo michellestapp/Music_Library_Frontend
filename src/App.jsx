@@ -7,6 +7,7 @@ import './App.css'
 
 
 
+
 function App() {
 
   const [songs,setSongs] = useState([]);
@@ -56,7 +57,7 @@ function App() {
         <NavBar searchInput = {searchInput} setSearchInput={setSearchInput}/>
       </nav>
       <div>
-        <MusicTable deleteSong = {deleteSong} parentSongs={songs} parentRuntime={runtime} searchInput = {searchInput}></MusicTable>
+        <MusicTable  deleteSong = {deleteSong} parentSongs={songs} parentRuntime={runtime} searchInput = {searchInput}></MusicTable>
       </div>
       <div>
         <AddSong addSong = {addSong}/>

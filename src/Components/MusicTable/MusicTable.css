@@ -1,8 +1,9 @@
 .table-background{
     background-color: lavender;
+    padding-left: 30px;
 }
 table{
-   padding: 20px;
+   padding: 40px;
  
 }
 .run-time{
