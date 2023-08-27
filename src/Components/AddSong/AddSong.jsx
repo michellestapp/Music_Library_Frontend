@@ -20,7 +20,6 @@ const AddSong = ({addSong}) => {
           genre: genre,
           run_time: runtime
         };
-        console.log(newSong);
         addSong(newSong);
       }
     return ( 
@@ -49,8 +48,9 @@ const AddSong = ({addSong}) => {
                     <input data-cy="genre-input" className='input-format' type="text" value={genre} onChange={(event => setGenre(event.target.value))}/>
                 </div>
                 <div className='label-field'>
+                    
                     <label className='label-padding'>Run Time </label>
-                    <input data-cy="runtime-input" className='input-format' type="integer" value={runtime} onChange={(event => setRuntime(event.target.value))}/>
+                    <input data-cy="runtime-input" className='input-format' type="number" value={runtime} onChange={(event => setRuntime(event.target.value))}/>
                 </div>
                 <button data-cy = "add-song-button" type="submit">Add Song</button>
             </div>

@@ -1,63 +1,49 @@
-import React from 'react';
-import Song from '../Song/Song';
-import './MusicTable.css'
+import React from "react";
+import Song from "../Song/Song";
+import "./MusicTable.css";
 
+let MusicTable = ({ searchInput, parentRuntime, parentSongs, getAllSongs }) => {
+  let filteredSongs = parentSongs.filter(
+    (song) =>
+      song.title.toLowerCase().includes(searchInput.toLowerCase()) ||
+      song.album.toLowerCase().includes(searchInput.toLowerCase()) ||
+      song.artist.toLowerCase().includes(searchInput.toLowerCase()) ||
+      song.release_date?.includes(searchInput) ||
+      song.genre?.toLowerCase().includes(searchInput.toLowerCase())
+  );
 
-let MusicTable = ({searchInput, parentRuntime, parentSongs, deleteSong}) => {
+  return (
+    <div className="table-background">
+      <div>
+        <table className="table">
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>Artist</th>
+              <th>Album</th>
+              <th>Release Date</th>
+              <th>Genre</th>
+              <th>Running Time</th>
+              <th>Delete Song</th>
+            </tr>
+          </thead>
+          <tbody>
+            {filteredSongs.map((song) => {
+              console.log(song.run_time)
+              return <Song song={song} getAllSongs={getAllSongs}/>;
+            })}
+            <tr className="run-time">
+              <td>Total Run Time</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td>{parentRuntime}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  );
+};
 
-
- let filteredSongs = parentSongs.filter(song => 
-    song.title.toLowerCase().includes(searchInput.toLowerCase())|| 
-    song.album.toLowerCase().includes(searchInput.toLowerCase())||
-    song.artist.toLowerCase().includes(searchInput.toLowerCase())||
-    song.release_date?.includes(searchInput)||
-    song.genre?.toLowerCase().includes(searchInput.toLowerCase())
-    )
-
- 
-
-    return ( 
-        <div className='table-background'>
-            <div>
-                <table className='table'>
-                    <thead>
-                        <th>Title</th>
-                        <th>Artist</th>
-                        <th>Album</th>
-                        <th>Release Date</th>
-                        <th>Genre</th>
-                        <th>Running Time</th>
-                        <th>Delete Song</th>
-                    </thead>
-                    <tbody>
-                    {filteredSongs
-                    .map((song) =>{
-
-                        return(
-                        
-                            <Song song = {song} deleteSong={deleteSong}/>
-                        )
-                    
-                    })}
-                    <tr className='run-time'>
-                        <td>Total Run Time</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td>{parentRuntime}</td>
-                         
-                    </tr>
-                    
-                    </tbody>
-
-                </table>
-               
-            </div>
-           
-        </div>
-        )
-
-}
- 
 export default MusicTable;

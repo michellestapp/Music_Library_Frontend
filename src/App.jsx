@@ -32,37 +32,16 @@ function App() {
       await getAllSongs();
     }
   } catch (error){
-    console.log(error.message);
+    console.error('Error adding song:', error);
   }
   }
-
-  async function deleteSong(songId){
-    try{
-      let response = await axios.delete(`http://127.0.0.1:5000/api/songs/${songId}`)
-      console.log(songId)
-    if(response.status === 204){
-      await getAllSongs();
-    }
-  } catch (error){
-    console.log(error.message);
-  }
-
-  }
- 
 
 
   return (
     <div >
-      <nav>
         <NavBar searchInput = {searchInput} setSearchInput={setSearchInput}/>
-      </nav>
-      <div>
-        <MusicTable  deleteSong = {deleteSong} parentSongs={songs} parentRuntime={runtime} searchInput = {searchInput}></MusicTable>
-      </div>
-      <div>
+        <MusicTable  getAllSongs={getAllSongs}   parentSongs={songs} parentRuntime={runtime} searchInput = {searchInput}/>    
         <AddSong addSong = {addSong}/>
-      </div>
-
     </div>
   );
   } 

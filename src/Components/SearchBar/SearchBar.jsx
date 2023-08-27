@@ -13,12 +13,12 @@ const SearchBar = ({searchInput, setSearchInput}) => {
 
     return (  
        
-        <div>
-            <form className='search-bar'>
+        <div className='search-bar'>
+         
             <span className='search-template'>Search</span>
-            <input type='text' onChange = {handleChange} value={searchInput}/>
-            <button className='filter'   type='submit'>Clear Filter</button>
-            </form>
+            <input data-cy="search-input" type='text' onChange = {handleChange} value={searchInput}/>
+            <button className='filter'   onClick={() => setSearchInput('')}>Clear Filter</button>
+        
         </div>
     );
 }
