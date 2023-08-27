@@ -29,7 +29,6 @@ let MusicTable = ({ searchInput, parentRuntime, parentSongs, getAllSongs }) => {
           </thead>
           <tbody>
             {filteredSongs.map((song) => {
-              console.log(song.run_time)
               return <Song song={song} getAllSongs={getAllSongs}/>;
             })}
             <tr className="run-time">

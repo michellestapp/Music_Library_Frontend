@@ -21,7 +21,15 @@ const AddSong = ({addSong}) => {
           run_time: runtime
         };
         addSong(newSong);
+        setTitle('');
+        setArtist('');
+        setAlbum('');
+        setReleaseDate('');
+        setGenre('');
+        setRuntime('');
       }
+
+      
     return ( 
         <div className='table-background'>
         <form onSubmit={handleSubmit}>

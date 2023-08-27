@@ -8,7 +8,13 @@ import axios from 'axios';
 
 const Song = ({song, getAllSongs}) => {
    
-    const run_time = Number((song.run_time/60).toFixed(2));
+    // const run_time = Number((song.run_time/60).toFixed(2));
+    const run_time = song.run_time
+    function formatRuntime(run_time) {
+      const minutes = Math.floor(run_time / 60);
+      const seconds = run_time % 60;
+      return `${minutes}:${seconds}`;
+    }
     
 
     async function deleteSong(){
@@ -30,7 +36,7 @@ const Song = ({song, getAllSongs}) => {
             <td>{song.album}</td>
             <td>{song.release_date}</td>
             <td>{song.genre}</td>
-            <td>{run_time}</td>
+            <td>{formatRuntime(run_time)}</td>
             <td>
                 <button type="submit" onClick={() => deleteSong(song.song_id)}>Delete</button>
             </td>
