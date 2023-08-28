@@ -11,7 +11,7 @@ import './App.css'
 function App() {
 
   const [songs,setSongs] = useState([]);
-  const [runtime, setRuntime] = useState([]);
+  const [totalRunTimeFormatted, setTotalRunTimeFormatted] = useState('');
   const [searchInput, setSearchInput]= useState('')
   
 
@@ -22,7 +22,8 @@ function App() {
   async function getAllSongs(){
     let response = await axios.get('http://127.0.0.1:5000/api/songs')
     setSongs(response.data.songs);
-    setRuntime(response.data.total_run_time);
+    setTotalRunTimeFormatted(response.data.total_run_time_formatted);
+    console.log(totalRunTimeFormatted)
     }
 
   async function addSong(newSong){
@@ -40,7 +41,7 @@ function App() {
   return (
     <div >
         <NavBar searchInput = {searchInput} setSearchInput={setSearchInput}/>
-        <MusicTable  getAllSongs={getAllSongs}   parentSongs={songs} parentRuntime={runtime} searchInput = {searchInput}/>    
+        <MusicTable  getAllSongs={getAllSongs}   parentSongs={songs} parentRuntime={totalRunTimeFormatted} searchInput = {searchInput}/>    
         <AddSong addSong = {addSong}/>
     </div>
   );

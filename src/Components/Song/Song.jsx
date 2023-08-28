@@ -8,7 +8,6 @@ import axios from 'axios';
 
 const Song = ({song, getAllSongs}) => {
    
-    // const run_time = Number((song.run_time/60).toFixed(2));
     const run_time = song.run_time
     function formatRuntime(run_time) {
       const minutes = Math.floor(run_time / 60);
