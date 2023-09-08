@@ -16,10 +16,12 @@ function App() {
   
 
   useEffect(() => {
+    console.log('useEffect fired');
     getAllSongs();
   }, [])
 
   async function getAllSongs(){
+    console.log('getAllSongs called');
     let response = await axios.get('http://127.0.0.1:5000/api/songs')
     setSongs(response.data.songs);
     setTotalRunTimeFormatted(response.data.total_run_time_formatted);

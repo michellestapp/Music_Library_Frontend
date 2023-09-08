@@ -32,11 +32,6 @@ const AddSong = ({addSong}) => {
         setSongFile(null);
       }
 
-    function handleFileChange(event) {
-        const selectedFile = event.target.files[0];
-        setSongFile(selectedFile);
-        }
-
       
     return ( 
         <div className='table-background'>
@@ -68,18 +63,7 @@ const AddSong = ({addSong}) => {
                     <label className='label-padding'>Run Time </label>
                     <input data-cy="runtime-input" className='input-format' type="number" value={runtime} onChange={(event => setRuntime(event.target.value))}/>
                 </div>
-                <div className="label-field">
-                    <label className="label-padding">Song File</label>
-                    <input
-                    data-cy="song-file-input"
-                    className="input-format"
-                    type="file"
-                    onChange={handleFileChange} // Handle file selection
-                    />
-                </div>
-                <button data-cy="add-song-button" type="submit">
-                    Add Song
-                </button>
+                <button data-cy = "add-song-button" type="submit">Add Song</button>
             </div>
         </form>
         </div>
