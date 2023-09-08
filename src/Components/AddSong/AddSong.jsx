@@ -9,6 +9,7 @@ const AddSong = ({addSong}) => {
     const [releaseDate, setReleaseDate] = useState('');
     const [genre, setGenre] = useState('');
     const [runtime, setRuntime] = useState('');
+    const [songFile, setSongFile] = useState(null);
 
     function handleSubmit(event){
         event.preventDefault();
@@ -18,7 +19,8 @@ const AddSong = ({addSong}) => {
           album: album,
           release_date: releaseDate,
           genre: genre,
-          run_time: runtime
+          run_time: runtime,
+          song_file: songFile,
         };
         addSong(newSong);
         setTitle('');
@@ -27,7 +29,13 @@ const AddSong = ({addSong}) => {
         setReleaseDate('');
         setGenre('');
         setRuntime('');
+        setSongFile(null);
       }
+
+    function handleFileChange(event) {
+        const selectedFile = event.target.files[0];
+        setSongFile(selectedFile);
+        }
 
       
     return ( 
@@ -60,7 +68,18 @@ const AddSong = ({addSong}) => {
                     <label className='label-padding'>Run Time </label>
                     <input data-cy="runtime-input" className='input-format' type="number" value={runtime} onChange={(event => setRuntime(event.target.value))}/>
                 </div>
-                <button data-cy = "add-song-button" type="submit">Add Song</button>
+                <div className="label-field">
+                    <label className="label-padding">Song File</label>
+                    <input
+                    data-cy="song-file-input"
+                    className="input-format"
+                    type="file"
+                    onChange={handleFileChange} // Handle file selection
+                    />
+                </div>
+                <button data-cy="add-song-button" type="submit">
+                    Add Song
+                </button>
             </div>
         </form>
         </div>
